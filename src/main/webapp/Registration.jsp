@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <link href="styles.css" rel="stylesheet">
     <title>Registration</title>
+    <style>
+        <%@ include file="/styles.css" %>
+    </style>
 </head>
 
 <body>
@@ -40,8 +43,11 @@
             </div>
             <br>
             <div>
-                <input class="registration_buttons" name="submit" type="submit" value="Sign in" />
+                <input class="registration_buttons" name="submit" type="submit" value="Registration" />
+                <button class="registration_buttons" name="submit" type="submit" >Reset</button>
+
             </div>
+
         </fieldset>
     </form>
 

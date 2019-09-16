@@ -55,8 +55,14 @@ div.reg label {
     height: 15px;
 }
 
+
+
 .registration_buttons {
     margin-left: 45px;
+}
+
+.login_buttons {
+    margin-left: 1px;
 }
 
 .logout_span {

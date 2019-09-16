@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <link href="styles.css" rel="stylesheet">
     <title>Show Items</title>
+    <style>
+        <%@ include file="/styles.css" %>
+    </style>
 </head>
 
 <body>

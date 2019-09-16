@@ -1,32 +1,19 @@
 package entity;
 
+import java.util.List;
+
 public class User {
   String fullname;
   String address;
   String login;
   String password;
+  List<Product> productList;
 
-  public User() {}
 
   public User(String fullname, String address, String login) {
     this.fullname = fullname;
     this.address = address;
     this.login = login;
-  }
-
-  private User(String fullname, String address, String login, String password) {
-    this.fullname = fullname;
-    this.address = address;
-    this.login = login;
-    this.password = password;
-  }
-
-  public String getAddress() {
-    return address;
-  }
-
-  public void setAddress(String address) {
-    this.address = address;
   }
 
   public String getFullname() {
@@ -35,6 +22,14 @@ public class User {
 
   public void setFullname(String fullname) {
     this.fullname = fullname;
+  }
+
+  public String getAddress() {
+    return address;
+  }
+
+  public void setAddress(String address) {
+    this.address = address;
   }
 
   public String getLogin() {
@@ -52,5 +47,12 @@ public class User {
   public void setPassword(String password) {
     this.password = password;
   }
-}
 
+  public List<Product> getProductList() {
+    return productList;
+  }
+
+  public void setProductList(List<Product> productList) {
+    this.productList = productList;
+  }
+}
