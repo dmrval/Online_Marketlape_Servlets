@@ -88,4 +88,7 @@ body {
   color: black;
   transition: all .5s;
   }
- 
+
+.div_center {
+    text-align: center;
+}

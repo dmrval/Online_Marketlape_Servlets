@@ -1,19 +1,22 @@
 package entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class User {
-  String fullname;
-  String address;
-  String login;
-  String password;
-  List<Product> productList;
+  private String fullname;
+  private String address;
+  private String login;
+  private String password;
+  private Sex sex;
+  private List<Product> productList;
 
-
-  public User(String fullname, String address, String login) {
+  public User(String fullname, String address, String login, Sex sex) {
+    productList = new ArrayList<>();
     this.fullname = fullname;
     this.address = address;
     this.login = login;
+    this.sex = sex;
   }
 
   public String getFullname() {
@@ -54,5 +57,13 @@ public class User {
 
   public void setProductList(List<Product> productList) {
     this.productList = productList;
+  }
+
+  public Sex getSex() {
+    return sex;
+  }
+
+  public void setSex(Sex sex) {
+    this.sex = sex;
   }
 }

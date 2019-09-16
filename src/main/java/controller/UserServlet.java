@@ -1,5 +1,6 @@
 package controller;
 
+import entity.Sex;
 import entity.User;
 
 import javax.servlet.ServletConfig;
@@ -55,7 +56,7 @@ public class UserServlet extends HttpServlet {
   @Override
   public void init(ServletConfig config) throws ServletException {
     super.init();
-    user = new User("Ivanov Ivan Ivanovich", "Stepnaya 9", "IVAN");
+    user = new User("Ivanov Ivan Ivanovich", "Stepnaya 9", "IVAN", Sex.MR);
   }
 
   @Override
