@@ -7,10 +7,10 @@ public class Product {
   String description;
   int startPrice;
   int stepLevel;
-  int time;
+  double time;
   User userMaster;
 
-  public Product(int uid, String nameProduct, String description, int startPrice, int stepLevel, int time, User userMaster) {
+  public Product(int uid, String nameProduct, String description, int startPrice, int stepLevel, double time, User userMaster) {
     this.uid = uid;
     this.nameProduct = nameProduct;
     this.description = description;
@@ -60,11 +60,11 @@ public class Product {
     this.stepLevel = stepLevel;
   }
 
-  public int getTime() {
+  public double getTime() {
     return time;
   }
 
-  public void setTime(int time) {
+  public void setTime(double time) {
     this.time = time;
   }
 

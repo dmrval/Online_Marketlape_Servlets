@@ -20,6 +20,10 @@ public class UsersHelper {
     secondUser
         .getProductList()
         .add(new Product(321312, "Water", "water", 430, 1320, 132, secondUser));
+
+    User annaBorisovna =
+        new User("Mihal4yk Anna Borisovna", "40 лет непонятных дел 15", "Anna", Sex.MRS);
+    annaBorisovna.getProductList().add(new Product(3213312, "Juice", "juice", 80, 5, 0.5, secondUser));
     allUsers.add(currentUser);
     allUsers.add(secondUser);
   }

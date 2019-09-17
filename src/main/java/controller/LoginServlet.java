@@ -25,15 +25,16 @@ public class LoginServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     request.setCharacterEncoding("UTF-8");
-    request.getRequestDispatcher("login.jsp").forward(request, response);
+    request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
   }
 
   @Override
   protected void doPost(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
     if (userSevice.userIsExist(currentUser)) {
-      req.setAttribute("currentUser", currentUser);
-      req.getRequestDispatcher("/showItems.jsp").forward(req, resp);
+      req.getSession().setAttribute("currentUser", currentUser);
+
+      req.getRequestDispatcher("/WEB-INF/views/showItems.jsp").forward(req, resp);
     }
   }
 

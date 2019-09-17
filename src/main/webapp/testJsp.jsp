@@ -10,7 +10,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link href="styles.css" rel="stylesheet">
+    <link href="WEB-INF/views/styles.css" rel="stylesheet">
     <title>Login</title>
 </head>
 

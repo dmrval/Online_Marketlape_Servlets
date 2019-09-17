@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="styles.css"/>
     <title>User</title>
     <style>
-        <%@ include file="/styles.css" %>
+        <%@ include file="/WEB-INF/views/styles.css" %>
     </style>
 </head>
 <body>

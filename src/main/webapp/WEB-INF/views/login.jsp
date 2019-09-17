@@ -7,7 +7,7 @@
     <link href="styles.css" rel="stylesheet">
     <title>Login</title>
     <style>
-        <%@ include file="/styles.css" %>
+        <%@ include file="/WEB-INF/views/styles.css" %>
     </style>
 </head>
 

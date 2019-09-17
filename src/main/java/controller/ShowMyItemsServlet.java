@@ -1,7 +1,6 @@
 package controller;
 
 import entity.User;
-import entity.UsersHelper;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,12 +19,9 @@ public class ShowMyItemsServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     request.setCharacterEncoding("UTF-8");
-    String name = request.getParameter("currentUser");
-    curr = UsersHelper.getUserByUserName(name);
-    System.out.println(curr.getFullname());
+    curr = (User) request.getSession().getAttribute("currentUser");
     request.setAttribute("currentUser", curr);
-
-    request.getRequestDispatcher("showMyItems.jsp").forward(request, response);
+    request.getRequestDispatcher("/WEB-INF/views/showMyItems.jsp").forward(request, response);
   }
 
   @Override

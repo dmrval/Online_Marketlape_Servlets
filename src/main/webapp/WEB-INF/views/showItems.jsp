@@ -6,10 +6,10 @@
     <link href="styles.css" rel="stylesheet">
     <title>Show Items</title>
     <style>
-        <%@ include file="/styles.css" %>
+        <%@ include file="/WEB-INF/views/styles.css" %>
     </style>
 </head>
-<jsp:useBean id="currentUser" scope="request" type="entity.User"/>
+<jsp:useBean id="currentUser" scope="session" type="entity.User"/>
 <body>
 <div class="head_sky">
     You are logged in as: ${currentUser.sex.respectCall} ${currentUser.fullname}
