@@ -12,7 +12,7 @@
 </head>
 
 <body>
-<form name="f" action="/singIn" method="post">
+<form name="f" action="/showItems" method="post">
     <fieldset>
         <legend>Please, log in</legend>
         <div class="field">

@@ -15,8 +15,37 @@
         <%@ include file="/WEB-INF/views/styles.css" %>
     </style>
 </head>
+
 <body>
-<jsp:useBean id="currentUser" scope="request" type="entity.User"/>
+<div class="head_sky">
+    You are logged in as: ${currentUser.sex.respectCall} ${currentUser.fullname}
+    <span class="logout_span"><a href="/logout">Logout</a></span>
+</div>
+<h1>
+    Online Marketplace
+</h1>
+<jsp:useBean id="currentUser" scope="session" type="entity.User"/>
+
+<h4 class="search_parameters">Search parameters</h4>
+
+<form name="search_param" method="post" class="keyword">
+    <h5>Keyword:</h5>
+    <div class="field">
+        <input type="text" name="username" value=""/>
+        <select>
+            <option>Option - 1</option>
+            <option>Option - 2</option>
+        </select>
+        <button>Search</button>
+    </div>
+</form>
+
+
+<div>
+    <span class="logout_span"><a href="/showItems">Show All Items</a></span>
+    <span class="logout_span"><a href="/showMyItems?currentUser=${currentUser.fullname}">Show My Items</a></span>
+    <span class="logout_span"><a href="/">Sell</a></span>
+</div>
 <div class="div_center">
     <h2>Dear ${currentUser.sex.respectCall} ${currentUser.fullname}. Here are your products.</h2>
 </div>
