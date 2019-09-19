@@ -64,9 +64,9 @@
             <tr>
                 <td><c:out value="${prod.nameProduct}"/></td>
                 <td><c:out value="${prod.description}"/></td>
-                <td><c:out value="${prod.startPrice}"/></td>
-                <td><c:out value="${prod.stepLevel}"/></td>
-                <td><c:out value="${prod.time}"/></td>
+                <td><c:out value="${prod.info.startPrice}"/></td>
+                <td><c:out value="${prod.info.stepLevel}"/></td>
+                <td><c:out value="${prod.info.time}"/></td>
             </tr>
         </c:forEach>
     </table>

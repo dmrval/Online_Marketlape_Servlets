@@ -5,7 +5,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /** Author - Damir_Valeev Created on 9/18/2019 */
@@ -16,17 +15,11 @@ public class LogOutServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     request.setCharacterEncoding("UTF-8");
-    HttpSession session = request.getSession(false);
-    if (session != null) {
-      session.invalidate();
-      System.out.println("Session is DIE");
+    LoginServlet.currSession = request.getSession(false);
+    if (LoginServlet.currSession != null) {
+      LoginServlet.currSession.invalidate();
+      LoginServlet.currSession = null;
     }
     request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
-  }
-
-  @Override
-  protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-      throws ServletException, IOException {
-    super.doPost(req, resp);
   }
 }

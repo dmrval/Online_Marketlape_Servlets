@@ -5,20 +5,15 @@ public class Product {
   int uid;
   String nameProduct;
   String description;
-  int startPrice;
-  int stepLevel;
-  double time;
-  User userMaster;
+  AuctionProductInfo info;
 
-  public Product(int uid, String nameProduct, String description, int startPrice, int stepLevel, double time, User userMaster) {
+  public Product(int uid, String nameProduct, String description, AuctionProductInfo info) {
     this.uid = uid;
     this.nameProduct = nameProduct;
     this.description = description;
-    this.startPrice = startPrice;
-    this.stepLevel = stepLevel;
-    this.time = time;
-    this.userMaster = userMaster;
+    this.info = info;
   }
+
 
   public int getUid() {
     return uid;
@@ -44,35 +39,11 @@ public class Product {
     this.description = description;
   }
 
-  public int getStartPrice() {
-    return startPrice;
+  public AuctionProductInfo getInfo() {
+    return info;
   }
 
-  public void setStartPrice(int startPrice) {
-    this.startPrice = startPrice;
-  }
-
-  public int getStepLevel() {
-    return stepLevel;
-  }
-
-  public void setStepLevel(int stepLevel) {
-    this.stepLevel = stepLevel;
-  }
-
-  public double getTime() {
-    return time;
-  }
-
-  public void setTime(double time) {
-    this.time = time;
-  }
-
-  public User getUserMaster() {
-    return userMaster;
-  }
-
-  public void setUserMaster(User userMaster) {
-    this.userMaster = userMaster;
+  public void setInfo(AuctionProductInfo info) {
+    this.info = info;
   }
 }

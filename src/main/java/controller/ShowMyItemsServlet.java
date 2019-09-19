@@ -1,7 +1,5 @@
 package controller;
 
-import entity.User;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,15 +11,15 @@ import java.io.IOException;
 @WebServlet("/showMyItems")
 public class ShowMyItemsServlet extends HttpServlet {
 
-  User curr;
-
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     request.setCharacterEncoding("UTF-8");
-    curr = (User) request.getSession().getAttribute("currentUser");
-    request.setAttribute("currentUser", curr);
-    request.getRequestDispatcher("/WEB-INF/views/showMyItems.jsp").forward(request, response);
+    if (LoginServlet.currSession != request.getSession()) {
+      request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
+    } else {
+      request.getRequestDispatcher("/WEB-INF/views/showMyItems.jsp").forward(request, response);
+    }
   }
 
   @Override

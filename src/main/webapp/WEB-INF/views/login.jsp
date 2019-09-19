@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +35,7 @@
 <br>
 <div class="login">
     <button class="login_buttons" name="submit" type="submit">Reset</button>
-    <button class="login_buttons" name="submit" type="submit">Enter as guest</button>
+    <button class="login_buttons" name="submit" type="button"><a href="/guestLogin" class="button">Enter as guest</a></button>
 </div>
 </body>
 </html>

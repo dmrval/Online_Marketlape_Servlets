@@ -17,21 +17,28 @@ public class UsersHelper {
     User currentUser = new User("Ivanov Ivan Ivanovich", "Stepnaya 9", "IVAN", Sex.MR);
     currentUser
         .getProductList()
-        .add(new Product(1111, "Soap", "Soap for Bubbles", 40, 10, 1, currentUser));
+        .add(
+            new Product(
+                1,
+                "Monitor",
+                "Lcd display",
+                new AuctionProductInfo(15000, 1000, 23423, currentUser)));
     currentUser
         .getProductList()
-        .add(new Product(2222, "Glass boll", "Glass boll", 3232, 102, 11, currentUser));
+        .add(
+            new Product(
+                2,
+                "Glass boll",
+                "Glass bol",
+                new AuctionProductInfo(1000, 100, 23423, currentUser)));
 
     User secondUser = new User("Mockachino Ludmila Petrovna", "Горького 16", "Ludmila", Sex.MRS);
-    secondUser.getProductList().add(new Product(333, "Water", "water", 430, 1320, 132, secondUser));
-
-    User annaBorisovna =
-        new User("Mihal4yk Anna Borisovna", "40 лет непонятных дел 15", "Anna", Sex.MRS);
-    annaBorisovna.getProductList().add(new Product(4444, "Juice", "juice", 80, 5, 0.5, secondUser));
+    secondUser
+        .getProductList()
+        .add(new Product(3, "Water", "Water", new AuctionProductInfo(100, 10, 234, secondUser)));
 
     allUsers.add(currentUser);
     allUsers.add(secondUser);
-    allUsers.add(annaBorisovna);
   }
 
   public void setAllUsers(List<User> allUsers) {

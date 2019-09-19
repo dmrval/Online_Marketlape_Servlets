@@ -1,8 +1,12 @@
 package entity;
 
+import javax.ejb.LocalBean;
+import javax.ejb.Singleton;
 import java.util.ArrayList;
 import java.util.List;
 
+@Singleton
+@LocalBean
 public class User {
   private String fullname;
   private String address;

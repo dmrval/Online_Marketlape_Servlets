@@ -5,6 +5,7 @@ import entity.UsersHelper;
 import service.UserServiceImpl;
 import service.UserSevice;
 
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,22 +18,27 @@ import java.io.IOException;
 public class ShowItemsServlet extends HttpServlet {
   UserSevice userSevice;
 
-  User currentUser;
+  @EJB User currentUser;
 
   UsersHelper usersHelper;
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
-    doPost(req, resp);
+    if (LoginServlet.currSession != req.getSession()) {
+      req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
+    } else {
+      doPost(req, resp);
+    }
   }
 
   @Override
   protected void doPost(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
     req.setCharacterEncoding("UTF-8");
-    req.setAttribute("allUsers", usersHelper);
     if (userSevice.userIsExist(currentUser)) {
+      req.setAttribute("allUsers", usersHelper);
+      LoginServlet.currSession = req.getSession(true);
       req.getSession().setAttribute("currentUser", currentUser);
       req.getRequestDispatcher("/WEB-INF/views/showItems.jsp").forward(req, resp);
     }
