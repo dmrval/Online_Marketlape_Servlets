@@ -61,11 +61,29 @@
                     <td>${product.uid}</td>
                     <td>${product.nameProduct}</td>
                     <td>${product.description}</td>
-                    <td>${product.info.master.sex} ${product.info.master.fullname}</td>
+                    <td>${product.info.master.sex.respectCall} ${product.info.master.fullname}</td>
                     <td>${product.info.startPrice}</td>
                     <td>${product.info.stepLevel}</td>
-                    <td>---</td>
-                    <td>---</td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${product.info.bidder!=null}">
+                                ${product.info.bidder.bidderOffer}
+                            </c:when>
+                            <c:otherwise>
+                                ---
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${product.info.bidder!=null}">
+                                ${product.info.bidder.bidderUser.fullname}
+                            </c:when>
+                            <c:otherwise>
+                                ---
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
                     <td>${product.info.time}</td>
                 </tr>
             </c:forEach>

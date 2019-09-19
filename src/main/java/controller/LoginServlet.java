@@ -13,8 +13,7 @@ import java.io.IOException;
 @WebServlet("/")
 public class LoginServlet extends HttpServlet {
 
-  @EJB
-  static HttpSession currSession;
+  @EJB static HttpSession currSession;
 
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)

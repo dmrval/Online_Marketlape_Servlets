@@ -1,5 +1,6 @@
 package entity;
 
+import javax.ejb.Stateless;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class UsersHelper {
                 1,
                 "Monitor",
                 "Lcd display",
-                new AuctionProductInfo(15000, 1000, 23423, currentUser)));
+                new AuctionProductInfo(15000, 1000, 23423, currentUser, true)));
     currentUser
         .getProductList()
         .add(
@@ -35,7 +36,13 @@ public class UsersHelper {
     User secondUser = new User("Mockachino Ludmila Petrovna", "Горького 16", "Ludmila", Sex.MRS);
     secondUser
         .getProductList()
-        .add(new Product(3, "Water", "Water", new AuctionProductInfo(100, 10, 234, secondUser)));
+        .add(
+            new Product(
+                3,
+                "Water",
+                "Water",
+                new AuctionProductInfo(
+                    100, 10, new Bidder(20, currentUser), 234, secondUser, true)));
 
     allUsers.add(currentUser);
     allUsers.add(secondUser);

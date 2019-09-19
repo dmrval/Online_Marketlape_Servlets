@@ -12,20 +12,22 @@ import java.io.IOException;
 /** Author - Damir_Valeev Created on 9/19/2019 */
 @WebServlet("/guestLogin")
 public class GuestServlet extends HttpServlet {
-  UsersHelper usersHelper;
+
 
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     request.setCharacterEncoding("UTF-8");
-    request.setAttribute("allUsers", usersHelper);
+    request.setAttribute("allUsers", ShowItemsServlet.usersHelper);
     request.getRequestDispatcher("/WEB-INF/views/guestPage.jsp").forward(request, response);
   }
 
   @Override
   public void init() throws ServletException {
     super.init();
-    usersHelper = new UsersHelper();
-    usersHelper.startInit();
+    if (ShowItemsServlet.usersHelper == null) {
+      ShowItemsServlet.usersHelper = new UsersHelper();
+      ShowItemsServlet.usersHelper.startInit();
+    }
   }
 }

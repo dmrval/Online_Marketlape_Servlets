@@ -41,7 +41,7 @@
 <div>
     <span class="logout_span"><a href="/showItems">Show All Items</a></span>
     <span class="logout_span"><a href="/showMyItems?currentUser=${currentUser.fullname}">Show My Items</a></span>
-    <span class="logout_span"><a href="/">Sell</a></span>
+    <span class="logout_span"><a href="/addProduct">Sell</a></span>
 </div>
 <div class="div_center">
     <h2>Dear ${currentUser.sex.respectCall} ${currentUser.fullname}. Here are all the products in the auction.</h2>
@@ -69,15 +69,40 @@
                     <td>${product.uid}</td>
                     <td>${product.nameProduct}</td>
                     <td>${product.description}</td>
-                    <td>${product.info.master.sex} ${product.info.master.fullname}</td>
+                    <td>${product.info.master.sex.respectCall} ${product.info.master.fullname}</td>
                     <td>${product.info.startPrice}</td>
                     <td>${product.info.stepLevel}</td>
-                    <td>---</td>
-                    <td>---</td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${product.info.bidder!=null}">
+                                ${product.info.bidder.bidderOffer}
+                            </c:when>
+                            <c:otherwise>
+                                ---
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${product.info.bidder!=null}">
+                                ${product.info.bidder.bidderUser.fullname}
+                            </c:when>
+                            <c:otherwise>
+                                ---
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
                     <td>${product.info.time}</td>
                     <td>
-                        <input type="text" name="username" value=""/>
-                        <button>Bid</button>
+                        <c:choose>
+                            <c:when test="${product.info.bidding}">
+                                <input type="text" name="username" value=""/>
+                                <button>Bid</button>
+                            </c:when>
+                            <c:otherwise>
+                                Not For Sale
+                            </c:otherwise>
+                        </c:choose>
                     </td>
                 </tr>
             </c:forEach>

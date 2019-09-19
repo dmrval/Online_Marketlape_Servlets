@@ -92,3 +92,16 @@ body {
 .div_center {
     text-align: center;
 }
+.field_center{
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+}
+
+.addProduct_label{
+    text-align: center;
+}
+
+div.addProd label {
+    display: block;
+}

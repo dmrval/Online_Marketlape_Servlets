@@ -7,13 +7,37 @@ public class AuctionProductInfo {
   Bidder bidder;
   double time;
   User master;
-
+  boolean isBidding;
 
   public AuctionProductInfo(double startPrice, double stepLevel, double time, User master) {
     this.startPrice = startPrice;
     this.stepLevel = stepLevel;
     this.time = time;
     this.master = master;
+  }
+
+  public AuctionProductInfo(
+      double startPrice, double stepLevel, double time, User master, boolean isBidding) {
+    this.startPrice = startPrice;
+    this.stepLevel = stepLevel;
+    this.time = time;
+    this.master = master;
+    this.isBidding = isBidding;
+  }
+
+  public AuctionProductInfo(
+      double startPrice,
+      double stepLevel,
+      Bidder bidder,
+      double time,
+      User master,
+      boolean isBidding) {
+    this.startPrice = startPrice;
+    this.stepLevel = stepLevel;
+    this.bidder = bidder;
+    this.time = time;
+    this.master = master;
+    this.isBidding = isBidding;
   }
 
   public double getStartPrice() {
@@ -54,5 +78,13 @@ public class AuctionProductInfo {
 
   public void setMaster(User master) {
     this.master = master;
+  }
+
+  public boolean isBidding() {
+    return isBidding;
+  }
+
+  public void setBidding(boolean bidding) {
+    isBidding = bidding;
   }
 }

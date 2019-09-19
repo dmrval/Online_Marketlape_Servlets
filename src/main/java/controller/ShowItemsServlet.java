@@ -20,7 +20,7 @@ public class ShowItemsServlet extends HttpServlet {
 
   @EJB User currentUser;
 
-  UsersHelper usersHelper;
+  static UsersHelper usersHelper;
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -47,8 +47,10 @@ public class ShowItemsServlet extends HttpServlet {
   @Override
   public void init() throws ServletException {
     super.init();
-    usersHelper = new UsersHelper();
-    usersHelper.startInit();
+    if (usersHelper == null) {
+      usersHelper = new UsersHelper();
+      usersHelper.startInit();
+    }
     userSevice = new UserServiceImpl();
     currentUser = usersHelper.allUsers.get(0);
   }

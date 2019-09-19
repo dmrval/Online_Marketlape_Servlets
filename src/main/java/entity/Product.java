@@ -1,5 +1,7 @@
 package entity;
 
+import java.util.HashSet;
+
 /** Author - Damir_Valeev Created on 9/12/2019 */
 public class Product {
   int uid;
@@ -13,7 +15,6 @@ public class Product {
     this.description = description;
     this.info = info;
   }
-
 
   public int getUid() {
     return uid;
