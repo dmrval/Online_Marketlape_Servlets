@@ -52,6 +52,6 @@ public class ShowItemsServlet extends HttpServlet {
       usersHelper.startInit();
     }
     userSevice = new UserServiceImpl();
-    currentUser = usersHelper.allUsers.get(0);
+    currentUser = usersHelper.allUsers.get(1);
   }
 }

@@ -1,6 +1,5 @@
 package entity;
 
-import javax.ejb.Stateless;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,5 +58,16 @@ public class UsersHelper {
       }
     }
     return new User("NotFound", "NotFound", "NotFound", Sex.MR);
+  }
+
+  public AuctionProductInfo getAuctionByInfo(String nameProduct) {
+    for (int i = 0; i < allUsers.size(); i++) {
+      for (int j = 0; j < allUsers.get(i).getProductList().size(); j++) {
+        if (allUsers.get(i).getProductList().get(j).nameProduct.equals(nameProduct)) {
+          return allUsers.get(i).getProductList().get(j).info;
+        }
+      }
+    }
+    return null;
   }
 }

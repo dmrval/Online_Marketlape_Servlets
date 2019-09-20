@@ -46,7 +46,6 @@ public class AddNewProductServlet extends HttpServlet {
 
     currentUser.getProductList().add(newProd);
     req.getRequestDispatcher("/WEB-INF/views/showMyItems.jsp").forward(req, resp);
-
   }
 
   @Override

@@ -59,11 +59,15 @@
         </div>
         <br>
         <div>
-            <input name="submit" type="submit" value="Add new product in auction" />
+            <input class="bigButton" name="submit" type="submit" value="Add new product in auction" />
         </div>
 
     </fieldset>
 </form>
+<br>
+<div class="center">
+    <button class="bigButton">Cancel</button>
+</div>
 
 
 </body>

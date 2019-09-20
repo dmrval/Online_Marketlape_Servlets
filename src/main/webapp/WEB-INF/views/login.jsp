@@ -28,14 +28,14 @@
         </div>
         <br>
         <div class="login">
-            <button class="login_buttons">Sign in</button>
+            <button class="login_buttons, bigButton">Sign in</button>
         </div>
     </fieldset>
 </form>
 <br>
 <div class="login">
-    <button class="login_buttons" name="submit" type="submit">Reset</button>
-    <button class="login_buttons" name="submit" type="button"><a href="/guestLogin" class="button">Enter as guest</a></button>
+    <button class="login_buttons, bigButton" name="submit" type="submit">Reset</button>
+    <button class="login_buttons, bigButton" name="submit" type="button"><a href="/guestLogin" class="button">Enter as guest</a></button>
 </div>
 </body>
 </html>

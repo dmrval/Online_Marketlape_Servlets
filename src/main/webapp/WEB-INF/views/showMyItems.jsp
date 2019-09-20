@@ -44,7 +44,7 @@
 <div>
     <span class="logout_span"><a href="/showItems">Show All Items</a></span>
     <span class="logout_span"><a href="/showMyItems?currentUser=${currentUser.fullname}">Show My Items</a></span>
-    <span class="logout_span"><a href="/">Sell</a></span>
+    <span class="logout_span"><a href="/addProduct">Sell</a></span>
 </div>
 <div class="div_center">
     <h2>Dear ${currentUser.sex.respectCall} ${currentUser.fullname}. Here are your products.</h2>

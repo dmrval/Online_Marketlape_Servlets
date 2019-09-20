@@ -10,10 +10,12 @@
     <style>
         <%@ include file="/WEB-INF/views/styles.css" %>
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </head>
 
 <jsp:useBean id="currentUser" scope="session" type="entity.User"/>
 <body>
+
 <div class="head_sky">
     You are logged in as: ${currentUser.sex.respectCall} ${currentUser.fullname}
     <span class="logout_span"><a href="/logout">Logout</a></span>
@@ -46,7 +48,7 @@
 <div class="div_center">
     <h2>Dear ${currentUser.sex.respectCall} ${currentUser.fullname}. Here are all the products in the auction.</h2>
 </div>
-<div>
+<div id="test1">
     <jsp:useBean id="allUsers" scope="request" type="entity.UsersHelper"/>
     <table>
         <caption>All Items in auction</caption>
@@ -74,7 +76,7 @@
                     <td>${product.info.stepLevel}</td>
                     <td>
                         <c:choose>
-                            <c:when test="${product.info.bidder!=null}">
+                            <c:when test="${product.info.bidder.bidderOffer!=0}">
                                 ${product.info.bidder.bidderOffer}
                             </c:when>
                             <c:otherwise>
@@ -84,7 +86,7 @@
                     </td>
                     <td>
                         <c:choose>
-                            <c:when test="${product.info.bidder!=null}">
+                            <c:when test="${product.info.bidder.bidderOffer!=0}">
                                 ${product.info.bidder.bidderUser.fullname}
                             </c:when>
                             <c:otherwise>
@@ -96,8 +98,12 @@
                     <td>
                         <c:choose>
                             <c:when test="${product.info.bidding}">
-                                <input type="text" name="username" value=""/>
-                                <button>Bid</button>
+                                <form name="biddUp" action="/biddUp" method="post">
+                                    <input type="number" name="biddLot" value="${product.info.stepLevel}"
+                                           min="${product.info.stepLevel}">
+                                    <input hidden name="biddInfo" value="${product.nameProduct}">
+                                    <button id="bidButton">Bid</button>
+                                </form>
                             </c:when>
                             <c:otherwise>
                                 Not For Sale

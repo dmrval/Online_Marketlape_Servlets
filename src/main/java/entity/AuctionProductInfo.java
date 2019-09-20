@@ -9,6 +9,10 @@ public class AuctionProductInfo {
   User master;
   boolean isBidding;
 
+  {
+    bidder = new Bidder(0,new User());
+  }
+
   public AuctionProductInfo(double startPrice, double stepLevel, double time, User master) {
     this.startPrice = startPrice;
     this.stepLevel = stepLevel;

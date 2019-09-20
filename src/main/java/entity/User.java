@@ -23,6 +23,9 @@ public class User {
     this.sex = sex;
   }
 
+  public User() {
+  }
+
   public String getFullname() {
     return fullname;
   }
