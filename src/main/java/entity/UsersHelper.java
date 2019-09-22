@@ -1,9 +1,11 @@
 package entity;
 
+import javax.ejb.EJB;
 import java.util.ArrayList;
 import java.util.List;
 
 /** Author - Damir_Valeev Created on 9/16/2019 */
+@EJB
 public class UsersHelper {
   public List<User> allUsers = new ArrayList<>();
 

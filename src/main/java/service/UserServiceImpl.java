@@ -37,6 +37,10 @@ public class UserServiceImpl implements UserSevice {
 
   @Override
   public boolean userIsExist(User user) {
+    return false;
+  }
+
+  static public boolean isExist(User user) {
 //    List<User> tmpUserList = getAllUser();
 //    for (User u : tmpUserList) {
 //      if (u.getLogin().equals(user.getLogin()) && u.getFullname().equals(user.getFullname())) {

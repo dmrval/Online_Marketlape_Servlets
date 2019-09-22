@@ -97,7 +97,7 @@
                     <td>${product.info.time}</td>
                     <td>
                         <c:choose>
-                            <c:when test="${product.info.bidding}">
+                            <c:when test="${product.info.bidding ==true}">
                                 <form name="biddUp" action="/biddUp" method="post">
                                     <input type="number" name="biddLot" value="${product.info.stepLevel}"
                                            min="${product.info.stepLevel}">

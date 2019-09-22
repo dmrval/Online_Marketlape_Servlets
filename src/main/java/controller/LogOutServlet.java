@@ -15,11 +15,8 @@ public class LogOutServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     request.setCharacterEncoding("UTF-8");
-    LoginServlet.currSession = request.getSession(false);
-    if (LoginServlet.currSession != null) {
-      LoginServlet.currSession.invalidate();
-      LoginServlet.currSession = null;
-    }
+    request.getSession().invalidate();
+    request.getSession(true);
     request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
   }
 }

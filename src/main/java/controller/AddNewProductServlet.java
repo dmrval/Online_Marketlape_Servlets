@@ -19,12 +19,7 @@ public class AddNewProductServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     request.setCharacterEncoding("UTF-8");
-
-    if (LoginServlet.currSession != request.getSession()) {
-      request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
-    } else {
       request.getRequestDispatcher("/WEB-INF/views/addProduct.jsp").forward(request, response);
-    }
   }
 
   @Override
