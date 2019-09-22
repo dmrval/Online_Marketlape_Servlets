@@ -26,42 +26,42 @@
     <fieldset class="field_center">
         <legend>Add new product</legend>
         <div class="addProd">
-            <label  for="prodname">Product Name:</label>
-            <input type="text" id="prodname" name="prodname" value="" />
+            <label for="prodname">Product Name:</label>
+            <input type="text" id="prodname" name="prodname" value=""/>
         </div>
         <br>
         <div class="addProd">
             <label for="description">Description:</label>
-            <input type="text" id="description" name="description" value="" />
+            <input type="text" id="description" name="description" value=""/>
         </div>
         <br>
         <br>
         <div>
             <div class="addProd">
                 <label for="startPrice">Start price:</label>
-                <input type="number" id="startPrice" name="startPrice" value="" />
+                <input type="number" id="startPrice" name="startPrice" value=""/>
             </div>
             <br>
             <div class="addProd">
                 <label for="stepLevel">Step level:</label>
-                <input type="number" id="stepLevel" name="stepLevel" value="" />
+                <input type="number" id="stepLevel" name="stepLevel" value=""/>
             </div>
             <br>
             <div class="addProd">
                 <label for="time">Time:</label>
-                <input type="number" id="time" name="time" value="" />
+                <input type="number" id="time" name="time" value=""/>
             </div>
 
         </div>
         <br>
         <div>
-            <input type="checkbox" name="forSale"> Put up for sale
+            <input type="hidden" name="forSale" value="0">
+            <input type=checkbox name="forSale" value="1"> Put up for sale
         </div>
         <br>
         <div>
-            <input class="bigButton" name="submit" type="submit" value="Add new product in auction" />
+            <input class="bigButton" name="submit" type="submit" value="Add new product in auction"/>
         </div>
-
     </fieldset>
 </form>
 <br>

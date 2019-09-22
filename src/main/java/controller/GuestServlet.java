@@ -1,5 +1,6 @@
 package controller;
 
+import entity.User;
 import entity.UsersHelper;
 
 import javax.servlet.ServletException;
@@ -13,12 +14,13 @@ import java.io.IOException;
 @WebServlet("/guestLogin")
 public class GuestServlet extends HttpServlet {
 
-
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     request.setCharacterEncoding("UTF-8");
-    request.setAttribute("allUsers", ShowItemsServlet.usersHelper);
+    User guest = new User("Guest");
+    request.getSession().setAttribute("currentUser", guest);
+    request.getSession().setAttribute("allProducts", ShowItemsServlet.usersHelper.getAllProducts());
     request.getRequestDispatcher("/WEB-INF/views/guestPage.jsp").forward(request, response);
   }
 

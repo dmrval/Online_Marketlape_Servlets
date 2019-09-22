@@ -72,4 +72,14 @@ public class UsersHelper {
     }
     return null;
   }
+
+  public List<Product> getAllProducts() {
+    List<Product> productList = new ArrayList<>();
+    for (User user : allUsers) {
+      for (Product p : user.getProductList()) {
+        productList.add(p);
+      }
+    }
+    return productList;
+  }
 }

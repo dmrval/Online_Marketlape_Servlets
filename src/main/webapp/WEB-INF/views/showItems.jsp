@@ -27,13 +27,13 @@
 
 <h4 class="search_parameters">Search parameters</h4>
 
-<form name="search_param" method="post" class="keyword">
+<form name="searchParams" action="/searchParams" method="post" class="keyword">
     <h5>Keyword:</h5>
     <div class="field">
-        <input type="text" name="username" value=""/>
-        <select>
-            <option>Option - 1</option>
-            <option>Option - 2</option>
+        <input type="text" name="searchText" value=""/>
+        <select name="selecter">
+            <option>Name</option>
+            <option>Seller</option>
         </select>
         <button>Search</button>
     </div>
@@ -49,7 +49,7 @@
     <h2>Dear ${currentUser.sex.respectCall} ${currentUser.fullname}. Here are all the products in the auction.</h2>
 </div>
 <div id="test1">
-    <jsp:useBean id="allUsers" scope="request" type="entity.UsersHelper"/>
+    <jsp:useBean id="allProducts" scope="session" type="java.util.List"/>
     <table>
         <caption>All Items in auction</caption>
         <tr>
@@ -65,8 +65,7 @@
             <td>Bidding</td>
         </tr>
         <br>
-        <c:forEach var="user" items="${allUsers.allUsers}">
-            <c:forEach var="product" items="${user.productList}">
+            <c:forEach var="product" items="${allProducts}">
                 <tr>
                     <td>${product.uid}</td>
                     <td>${product.nameProduct}</td>
@@ -97,7 +96,7 @@
                     <td>${product.info.time}</td>
                     <td>
                         <c:choose>
-                            <c:when test="${product.info.bidding ==true}">
+                            <c:when test="${product.info.bidding == true && !product.info.master.fullname.equals(currentUser.fullname)}">
                                 <form name="biddUp" action="/biddUp" method="post">
                                     <input type="number" name="biddLot" value="${product.info.stepLevel}"
                                            min="${product.info.stepLevel}">
@@ -106,13 +105,15 @@
                                 </form>
                             </c:when>
                             <c:otherwise>
-                                Not For Sale
+                                Not for sale
+                                <c:if test="${product.info.master.fullname.equals(currentUser.fullname)}">
+                                    , it's your
+                                </c:if>
                             </c:otherwise>
                         </c:choose>
                     </td>
                 </tr>
             </c:forEach>
-        </c:forEach>
     </table>
 </div>
 

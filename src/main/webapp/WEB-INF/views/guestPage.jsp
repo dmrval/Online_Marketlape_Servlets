@@ -24,23 +24,27 @@
 
 <h4 class="search_parameters">Search parameters</h4>
 
-<form name="search_param" method="post" class="keyword">
+<form name="searchParams" action="/searchParams" method="post" class="keyword">
     <h5>Keyword:</h5>
     <div class="field">
-        <input type="text" name="username" value=""/>
-        <select>
-            <option>Option - 1</option>
-            <option>Option - 2</option>
+        <input type="text" name="searchText" value=""/>
+        <select name="selecter">
+            <option>Name</option>
+            <option>Description</option>
+            <option>Seller</option>
         </select>
         <button>Search</button>
     </div>
 </form>
+<div>
+    <span class="logout_span"><a href="/guestLogin">Show All Items</a></span>
+</div>
 
 <div class="div_center">
     <h2>Dear guest. Here are all the products in the auction.</h2>
 </div>
 <div>
-    <jsp:useBean id="allUsers" scope="request" type="entity.UsersHelper"/>
+    <jsp:useBean id="allProducts" scope="session" type="java.util.List"/>
     <table>
         <caption>All Items in auction</caption>
         <tr>
@@ -55,38 +59,36 @@
             <td>Stop date</td>
         </tr>
         <br>
-        <c:forEach var="user" items="${allUsers.allUsers}">
-            <c:forEach var="product" items="${user.productList}">
-                <tr>
-                    <td>${product.uid}</td>
-                    <td>${product.nameProduct}</td>
-                    <td>${product.description}</td>
-                    <td>${product.info.master.sex.respectCall} ${product.info.master.fullname}</td>
-                    <td>${product.info.startPrice}</td>
-                    <td>${product.info.stepLevel}</td>
-                    <td>
-                        <c:choose>
-                            <c:when test="${product.info.bidder!=null}">
-                                ${product.info.bidder.bidderOffer}
-                            </c:when>
-                            <c:otherwise>
-                                ---
-                            </c:otherwise>
-                        </c:choose>
-                    </td>
-                    <td>
-                        <c:choose>
-                            <c:when test="${product.info.bidder!=null}">
-                                ${product.info.bidder.bidderUser.fullname}
-                            </c:when>
-                            <c:otherwise>
-                                ---
-                            </c:otherwise>
-                        </c:choose>
-                    </td>
-                    <td>${product.info.time}</td>
-                </tr>
-            </c:forEach>
+        <c:forEach var="product" items="${allProducts}">
+            <tr>
+                <td>${product.uid}</td>
+                <td>${product.nameProduct}</td>
+                <td>${product.description}</td>
+                <td>${product.info.master.sex.respectCall} ${product.info.master.fullname}</td>
+                <td>${product.info.startPrice}</td>
+                <td>${product.info.stepLevel}</td>
+                <td>
+                    <c:choose>
+                        <c:when test="${product.info.bidder!=null}">
+                            ${product.info.bidder.bidderOffer}
+                        </c:when>
+                        <c:otherwise>
+                            ---
+                        </c:otherwise>
+                    </c:choose>
+                </td>
+                <td>
+                    <c:choose>
+                        <c:when test="${product.info.bidder!=null}">
+                            ${product.info.bidder.bidderUser.fullname}
+                        </c:when>
+                        <c:otherwise>
+                            ---
+                        </c:otherwise>
+                    </c:choose>
+                </td>
+                <td>${product.info.time}</td>
+            </tr>
         </c:forEach>
     </table>
 </div>

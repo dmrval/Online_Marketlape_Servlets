@@ -30,11 +30,11 @@ public class ShowItemsServlet extends HttpServlet {
   protected void doPost(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
     req.setCharacterEncoding("UTF-8");
-    if (UserServiceImpl.isExist(usersHelper.allUsers.get(0))) {
-      req.setAttribute("allUsers", usersHelper);
-      req.getSession().setAttribute("currentUser", usersHelper.allUsers.get(0));
-      req.getRequestDispatcher("/WEB-INF/views/showItems.jsp").forward(req, resp);
-    }
+    req.getSession().setAttribute("login", "login");
+    req.getSession().setAttribute("pass", "pass");
+    req.getSession().setAttribute("allProducts", usersHelper.getAllProducts());
+    req.getSession().setAttribute("currentUser", usersHelper.allUsers.get(1));
+    req.getRequestDispatcher("/WEB-INF/views/showItems.jsp").forward(req, resp);
   }
 
   @Override

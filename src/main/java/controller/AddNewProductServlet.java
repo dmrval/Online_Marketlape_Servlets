@@ -19,7 +19,7 @@ public class AddNewProductServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     request.setCharacterEncoding("UTF-8");
-      request.getRequestDispatcher("/WEB-INF/views/addProduct.jsp").forward(request, response);
+    request.getRequestDispatcher("/WEB-INF/views/addProduct.jsp").forward(request, response);
   }
 
   @Override
@@ -31,13 +31,17 @@ public class AddNewProductServlet extends HttpServlet {
     double startPrice = Double.parseDouble(req.getParameter("startPrice"));
     double stepLevel = Double.parseDouble(req.getParameter("stepLevel"));
     double time = Double.parseDouble(req.getParameter("time"));
-
+    boolean isBidding = false;
+    String string = req.getParameter("forSale");
+    if (string.equals("1")) {
+      isBidding = true;
+    }
     Product newProd =
         new Product(
             9999,
             prodname,
             description,
-            new AuctionProductInfo(startPrice, stepLevel, time, currentUser, false));
+            new AuctionProductInfo(startPrice, stepLevel, time, currentUser, isBidding));
 
     currentUser.getProductList().add(newProd);
     req.getRequestDispatcher("/WEB-INF/views/showMyItems.jsp").forward(req, resp);
